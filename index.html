@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Punjab Organics - Fresh Dairy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        :root {
+            --primary: #2d5a27;
+            --light: #f8f5f0;
+        }
+        body {
+            font-family: system-ui, sans-serif;
+            background: var(--light);
+        }
+        .navbar {
+            background: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .logo {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        .hero {
+            background: linear-gradient(rgba(45,90,39,0.9), rgba(45,90,39,0.9)), url('https://images.unsplash.com/photo-1628088062854-d1870b4553da?w=1920') center/cover;
+            color: white;
+            text-align: center;
+            padding: 6rem 2rem;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        .products {
+            padding: 4rem 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .products h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--primary);
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+        .product-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .product-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+        .product-card h3 {
+            margin-bottom: 0.5rem;
+        }
+        .product-card .price {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 0.5rem;
+        }
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 1rem 2rem;
+                gap: 1rem;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            }
+            .nav-links.active {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">🥛 Punjab Organics</div>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        <ul id="nav-links" class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#products">Products</a></li>
+            <li><a href="checkout.html">Checkout</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <h1>Fresh Organic Dairy</h1>
+        <p>Pure, fresh, and natural from Punjab</p>
+    </section>
+
+    <section id="products" class="products">
+        <h2>Our Products</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1550583724-b2692b85b154?w=400" alt="Milk">
+                <h3>Fresh Milk</h3>
+                <p class="price">₹60/L</p>
+                <a href="checkout.html" class="btn">Buy Now</a>
+            </div>
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photox1628088062854-d1870b4553da?w=400" alt="Ghee">
+                <h3>Desi Ghee</h3>
+                <p class="price">₹500/500g</p>
+                <a href="checkout.html" class="btn">Buy Now</a>
+            </div>
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?w=400" alt="Paneer">
+                <h3>Fresh Paneer</h3>
+                <p class="price">₹180/500g</p>
+                <a href="checkout.html" class="btn">Buy Now</a>
+            </div>
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?w=400" alt="Yogurt">
+                <h3>Yogurt</h3>
+                <p class="price">₹50/500g</p>
+                <a href="checkout.html" class="btn">Buy Now</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('nav-links').classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
